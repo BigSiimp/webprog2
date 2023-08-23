@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Frontend from './frontend'; // Überprüfe den Importpfad
+import Frontend from './frontend'; 
 
-ReactDOM.render(<Frontend />, document.getElementById('root'));
+ReactDOM.render(<frontend />, document.getElementById('root'));

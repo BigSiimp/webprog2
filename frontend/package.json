@@ -23,6 +23,9 @@
     ]
   },
   "dependencies": {
-    "mysql2": "^3.6.0"
-  }
+    "mysql2": "^3.6.0",
+    "react": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "proxy": "http://localhost:3001"
 }

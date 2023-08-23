@@ -2,18 +2,25 @@ const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  port: 3000,
-  user: 'user',
-  password: '1234',
+  port: 3306,
+  user: 'root',
+  password: 'Passwort',
   database: 'Permangel'
 });
+// SQL-Datei lesen
+const sqlScript = fs.readFileSync('permangel.sql', 'utf-8');
 
-connection.connect(err => {
-  if (err) {
-    console.error('Fehler bei der Verbindung zur Datenbank:', err);
+// SQL-Befehle ausführen
+connection.query(sqlScript, (error, results) => {
+  if (error) {
+    console.error('Fehler beim Ausführen der SQL-Datei:', error);
   } else {
-    console.log('Verbindung zur Datenbank erfolgreich');
+    console.log('SQL-Datei erfolgreich ausgeführt');
   }
+
+  // Verbindung schließen
+  connection.end();
 });
 
-module.exports = connection;
+
+
