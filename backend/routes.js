@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('./db'); // Passe den Pfad an
+const db = require('./DB'); 
 
 router.post('/insert', (req, res) => {
   const newData = {
