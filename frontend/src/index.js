@@ -1,10 +1,6 @@
-const backendResponseElement = document.getElementById('backend-response');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App'; // Hier wird die Hauptkomponente geladen
+import './index.css';
 
-fetch('/api/data') // Passe den Pfad an deine Backend-Routen an
-    .then(response => response.text())
-    .then(data => {
-        backendResponseElement.textContent = data;
-    })
-    .catch(error => {
-        backendResponseElement.textContent = 'Fehler beim Abrufen der Daten vom Backend.';
-    });
+ReactDOM.render(<App />, document.getElementById('root'));
