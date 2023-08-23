@@ -1,15 +1,14 @@
 {
-  "name": "webprog2",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Hallo\r v20.5.1 Node.js Version\r v3.11.4 Python Version\r v9.8.1 npm Version",
-  "main": "index.js",
+  "description": "",
+  "main": "serverapp.js",
   "scripts": {
+    "start": "node serverapp.js", 
+    "npm": "npm start",     
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
+  "license": "ISC"
 }
