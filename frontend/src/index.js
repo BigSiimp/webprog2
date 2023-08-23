@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App'; // Hier wird die Hauptkomponente geladen
-import './index.css';
+import Frontend from './frontend'; // Überprüfe den Importpfad
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Frontend />, document.getElementById('root'));

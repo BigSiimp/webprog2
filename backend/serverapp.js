@@ -6,8 +6,9 @@ const path = require('path'); // Modul zum Arbeiten mit Dateipfaden
 // Statische Dateien aus dem "frontend/public"-Ordner veröffentlichen
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
-app.get('/', (req, res) => {
-  res.send('Hallo, dies ist dein Express-Backend!');
+app.get('/api/data', (req, res) => {
+  const jsonData = { message: 'Hello from the backend!' };
+  res.json(jsonData);
 });
 
 app.listen(port, () => {
