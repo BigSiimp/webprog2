@@ -11,11 +11,6 @@ app.get('/', (req, res) => {
     res.send('Welcome to the backend server!');
   });
 
-app.get('/joboffers', (req, res) => {
-    console.log('Request to /joboffers received'); // Ausgabe zur Kontrolle
-    // ...
-  });
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
