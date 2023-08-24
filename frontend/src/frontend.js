@@ -5,14 +5,16 @@ function Frontend() {
   const [backendData, setBackendData] = useState({});
   const [loading, setLoading] = useState(true);
 
-  fetch('/api/data')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.message); 
-  })
-  .catch(error => {
-    console.error('Fehler beim Abrufen der Daten vom Backend:', error);
-  });
+  useEffect(() => {
+    fetch('/backend/DB')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Response from backend:', data); 
+     })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Daten vom Backend:', error);
+      });
+  }, []);
 
   return (
     <div>
