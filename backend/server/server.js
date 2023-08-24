@@ -2,7 +2,6 @@ const express = require('express');
 const dbConnection = require('./db.js');
 const app = express();
 const cors = require('cors'); // Importieren des CORS-Moduls
-const apiRouter = require('./routes');
 const PORT = 3001;
 
 app.use(cors());
