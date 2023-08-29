@@ -10,6 +10,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Welcome to the backend server!');
 });
+
+
 // Daten für Übermittlungen an andere in Form einer Abfrage am Eckpunkt /joboffers
 app.get('/joboffers', (req, res) => {
   const query = 'SELECT * FROM joboffers';
@@ -85,6 +87,36 @@ app.post('/joboffers', (req, res) => {
   });
 });
 
+//Joboffer aktualisieren DONE
+app.patch('/joboffers/:id', (req, res) => {
+  const jobId = req.params.id;
+  const { title, company, payment, skills, description, startDate } = req.body;
+
+  const query = `
+    UPDATE joboffers
+    SET title = ?,
+        company = ?,
+        payment = ?,
+        skills = ?,
+        description = ?,
+        startDate = ?
+    WHERE id = ?
+  `;
+  
+  const values = [title, company, payment, skills, description, startDate, jobId];
+
+  db.run(query, values, (error) => {
+    if (error) {
+      console.error('Error updating job offer:', error);
+      res.status(500).json({ error: 'Error updating job offer' });
+    } else {
+      res.json({ message: 'Job offer updated successfully' });
+    }
+  });
+});
+
+
+
 // Stellenangebot löschen anhand der ID  DONE
 app.delete('/joboffers/:id', (req, res) => {
   const id = req.params.id;
@@ -129,15 +161,13 @@ app.get('/joboffers/:id', (req, res) => {
   });
 });
 
-// Alle Stellenangebote abfragen (neueste zuerst) 
-app.get('/joboffers/latest', (req, res) => {
+// Joboffers nach createdOn Datum nach dem Neuesten sortieren
+app.get('/joboffers/createdOn/all', (req, res) => {
   const query = `
     SELECT * FROM joboffers
     ORDER BY createdOn DESC
-    LIMIT 1
   `;
-
-  db.get(query, (error, row) => {
+  db.all(query, (error, row) => {
     if (error) {
       console.error('Error fetching latest job offer:', error);
       res.status(500).json({ error: 'Error fetching latest job offer' });
@@ -148,10 +178,9 @@ app.get('/joboffers/latest', (req, res) => {
 });
 
 
-// Joboffers nach Payment filtern
-app.get('/joboffers/payment', (req, res) => {
+// Joboffers nach Payment filtern DONE
+app.get('/joboffers/payment/all', (req, res) => {
   const query = 'SELECT * FROM joboffers ORDER BY payment DESC';
-  console.log("Test")
   db.all(query, (error, rows) => {
     if (error) {
       console.error('Error fetching job offers:', error);
