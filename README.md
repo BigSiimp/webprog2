@@ -10,7 +10,7 @@ user: root
 passwort: ‘passwort’ (passwort kann beim neu aufsetzen von xampp auch leer sein, da nur sql datei importiert wird)
 (passwort per shell ändern oder in "D:\Werbprog\phpMyAdmin\config.inc.php" das passwort ändern)
 
-
+ACHTUNG! Da wir extrerne software über docker schicken müssen, versuchen wir gerade sqlite oder mysql umzustellen, d.h. backent befehle wie app.get werden noch vcerändert als auch die adresse vllt. momentan passt aber alles.
 ports:
 
 frontend 3000
