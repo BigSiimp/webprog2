@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
   res.send('Welcome to the backend server!');
 });
 
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
 // Daten für Übermittlungen an andere in Form einer Abfrage am Eckpunkt /joboffers
 app.get('/joboffers', (req, res) => {
