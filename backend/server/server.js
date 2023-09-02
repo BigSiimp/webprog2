@@ -40,7 +40,6 @@ app.post('/joboffers', (req, res) => {
     createdOn,
     createdBy,
     softwareVersion,
-    owner_id
   } = req.body;
 
   // Überprüfe, ob die Pflichtfelder vorhanden sind 
@@ -50,7 +49,7 @@ app.post('/joboffers', (req, res) => {
 
   const query = `
     INSERT INTO joboffers 
-    (company, title, description, payment, skills, startDate, createdOn, createdBy, softwareVersion, owner_id) 
+    (company, title, description, payment, skills, startDate, createdOn, createdBy, softwareVersion) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
@@ -64,7 +63,7 @@ app.post('/joboffers', (req, res) => {
     createdOn,
     createdBy,
     softwareVersion,
-    owner_id
+
   ];
 
   db.run(query, values, (error) => {

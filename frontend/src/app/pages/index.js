@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box } from '@mui/system';
 import Header from '../../components/Header';
-import JobOffers from './JobOffers'; // Hier sollte der Pfad korrekt sein
+import JobOffers from 'frontend/components/JobOffers.jsx'; // Hier sollte der Pfad korrekt sein
 
-function ClientPage() {
+export default function Homepage() {
   return (
     <Box>
       <Header />
@@ -12,4 +12,3 @@ function ClientPage() {
   );
 }
 
-export default ClientPage;
