@@ -28,19 +28,6 @@ app.get('/joboffers', (req, res) => {
   });
 });
 
-// Daten von Bewerbern ausgebem
-app.get('/jobapplicants', (req, res) => {
-  const query = 'SELECT * FROM jobapplicants';
-  db.all(query, (error, rows) => {
-    if (error) {
-      console.error('Error fetching jobapplicants:', error);
-      res.status(500).json({ error: 'Error fetching jobapplicants' });
-    } else {
-      res.json(rows); // Senden der abgerufenen Daten als JSON
-    }
-  });
-});
-
 //Joboffer posten DONE
 app.post('/joboffers', (req, res) => {
   const {
@@ -190,6 +177,19 @@ app.get('/joboffers/payment/all', (req, res) => {
       res.status(500).json({ error: 'Error fetching job offers' });
     } else {
       res.json(rows);
+    }
+  });
+});
+
+// Daten von Bewerbern ausgeben
+app.get('/jobapplicants', (req, res) => {
+  const query = 'SELECT * FROM jobapplicants';
+  db.all(query, (error, rows) => {
+    if (error) {
+      console.error('Error fetching jobapplicants:', error);
+      res.status(500).json({ error: 'Error fetching jobapplicants' });
+    } else {
+      res.json(rows); // Senden der abgerufenen Daten als JSON
     }
   });
 });
