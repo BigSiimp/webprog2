@@ -30,11 +30,11 @@ app.get('/joboffers', (req, res) => {
 
 // Daten von Bewerbern ausgebem
 app.get('/jobapplicants', (req, res) => {
-  const query = 'SELECT * FROM users';
+  const query = 'SELECT * FROM jobapplicants';
   db.all(query, (error, rows) => {
     if (error) {
-      console.error('Error fetching users:', error);
-      res.status(500).json({ error: 'Error fetching users' });
+      console.error('Error fetching jobapplicants:', error);
+      res.status(500).json({ error: 'Error fetching jobapplicants' });
     } else {
       res.json(rows); // Senden der abgerufenen Daten als JSON
     }
