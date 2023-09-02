@@ -1,44 +1,38 @@
 # webprog2
+Systemanforderungen - Version
 
-Um die Website das erste mal zu initialisieren muss im backend UND frontend "npm install" ausgeführt werden.
-Danach wird das Backend mit "npm start" und das Frontend mit "npm run dev" über localhost gestartet.
-Die Datenbank ist persistent und befindet sich lokal im backend. Für das vorgegebene Szenario sind vorerst keine User/PW Daten für die Datenbank möglich.
-Das System kann allerdings für ein realistischeres Szenario jederzeit auf Mysql mit php wechseln, da die .sql Datei mitgegeben wurde und die app.get/post Befehle lediglich angepasst werden müsssen.
+Node.js - v20.5.1
 
+Packages - Version
 
-important dependencies:
-v20.5.1 Nodejs Version
-v9.8.1 npm Version
-v      sqlite
-v      Nextjs
-v       express
+npm - v9.8.1
 
+cors - v2.8.5
+express - v4.18.2
+sqlite3 - v5.1.6
 
-Ports:
-frontend 3000
-backend 3001
-
-Datenbank:
-
-CREATE TABLE joboffers ( id INT PRIMARY KEY AUTO_INCREMENT, createdOn INT, createdBy VARCHAR(255), company VARCHAR(255), softwareVersion VARCHAR(20), title VARCHAR(255), description TEXT, payment DECIMAL(10, 2), startDate INT, skills TEXT );
-
-CREATE TABLE users ( id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), password VARCHAR(255), isAdmin BOOLEAN, isCompany BOOLEAN );
-
+@emotion/react - v11.11.1
+@emotion/styled - v11.11.0
+@mui/material - v5.14.7
+@mui/icons-material - v5.14.7
+next - v13.4.19
+react - v18.2.0
+react-dom v18.2.0
+react-hook-form v7.45.4
+react-router-dom v6.15.0
+yup - v1.2.0
+axios - v1.5.0
 
 
-User Daten ( noch nicht implementiert, allerdings für zukünftige Schritte):
 
-“admin” user mit den meisten rechten (Mitarbeiter):
+Installation:
 
-Name: admin
-PW: admin
+Herunterladen/Extrahieren der Dateien, speziell Ordner “webprog2”
+In den backend\server Ordner navigieren und “npm install” ausführen
+In den frontend Ordner navigieren und “npm install” ausführen
 
- “corpo” user, welche offers als firmen erstellen können:
+Starten des Backends: In \backend\server navigieren und “npm start” über Terminal ausführen
+Starten des Frontends: In den \frontend navigieren und “npm run dev” über Terminal ausführen
 
-Name: corpo
-PW: corpo 
-
-“user” user, welche nur joboffers einsehen und sich melden können:
-
-Name: user
-PW: user
+=> Frontend bzw. die Seite ist über localhost:3000 anschließend aufrufbar, das Backend über localhost:3001
+(Notiz: Frontend kann beim ersten Start ein paar extra Sekunden brauchen)
