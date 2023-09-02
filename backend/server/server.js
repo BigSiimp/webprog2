@@ -28,8 +28,8 @@ app.get('/joboffers', (req, res) => {
   });
 });
 
-// User Daten DONE
-app.get('/users', (req, res) => {
+// Daten von Bewerbern ausgebem
+app.get('/jobapplicants', (req, res) => {
   const query = 'SELECT * FROM users';
   db.all(query, (error, rows) => {
     if (error) {
