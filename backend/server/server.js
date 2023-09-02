@@ -42,6 +42,8 @@ app.post('/joboffers', (req, res) => {
     softwareVersion,
   } = req.body;
 
+  console.log('Empfangene Daten:', req.body); // Debug-Ausgabe
+
   // Überprüfe, ob die Pflichtfelder vorhanden sind 
   if (!company || !title || !description || !payment || !skills || !startDate) {
     return res.status(400).json({ error: 'Required fields are missing' });
@@ -50,7 +52,7 @@ app.post('/joboffers', (req, res) => {
   const query = `
     INSERT INTO joboffers 
     (company, title, description, payment, skills, startDate, createdOn, createdBy, softwareVersion) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
   const values = [

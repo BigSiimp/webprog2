@@ -52,6 +52,7 @@ export default function Homepage() {
     title: '',
     description: '',
     company: '',
+    skills: '',
     startDate: '',
     payment: '',
     createdBy: '',
@@ -64,25 +65,6 @@ export default function Homepage() {
   function updateApiRoute(newRoute) {
     setApiRoute(newRoute);
   }
-
-  const handleClickOpenDialog = () => {
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
-
-  const handleCreateJobOffer = () => {
-    // Hier können Sie die Logik implementieren, um das neue Jobangebot zu erstellen
-    // Verwenden Sie die Daten in `newJobOffer`
-
-    // Nachdem das Jobangebot erstellt wurde, können Sie das Dialogfenster schließen
-    setOpenDialog(false);
-  };
-
-
-
   React.useEffect(() => {
     setLoading(true);
     async function fetchAccordionCards() {
@@ -109,87 +91,6 @@ export default function Homepage() {
       <Header />
       <main style={{ height: '100%' }}>
         <Box sx={{ pt: 2, bgcolor: 'primary.background', width: '100%', minHeight: '95vh' }}>
-
-
-
-          
-    <Button
-      size="large"
-      sx={{ margin: '10px' }}
-      variant="contained"
-      onClick={handleClickOpenDialog}
-    >
-      Create New Job Offer
-    </Button>
-
-    <Dialog open={openDialog} onClose={handleCloseDialog}>
-      <DialogTitle>Create New Job Offer</DialogTitle>
-      <DialogContent>
-        <DialogContentText>
-          Please fill in the details for the new job offer:
-        </DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          label="Title"
-          fullWidth
-          value={newJobOffer.title}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, title: e.target.value })}
-        />
-        <TextField
-          margin="dense"
-          label="Description"
-          fullWidth
-          value={newJobOffer.description}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, description: e.target.value })}
-        />
-        <TextField
-          margin="dense"
-          label="Company"
-          fullWidth
-          value={newJobOffer.company}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, company: e.target.value })}
-        />
-        <TextField
-          margin="dense"
-          label="Start Date"
-          fullWidth
-          value={newJobOffer.startDate}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, startDate: e.target.value })}
-        />
-        <TextField
-          margin="dense"
-          label="Payment"
-          fullWidth
-          value={newJobOffer.payment}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, payment: e.target.value })}
-        />
-        <TextField
-          margin="dense"
-          label="Created by"
-          fullWidth
-          value={newJobOffer.createdBy}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, createdBy: e.target.value })}
-        />
-        <TextField
-          margin="dense"
-          label="Software Version"
-          fullWidth
-          value={newJobOffer.softwareVersion}
-          onChange={(e) => setNewJobOffer({ ...newJobOffer, softwareVersion: e.target.value })}
-        />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleCloseDialog}>Cancel</Button>
-        <Button onClick={handleCreateJobOffer} color="primary">
-          Create
-        </Button>
-      </DialogActions>
-    </Dialog>
-
-
-
-
           <Button size="large"  sx={{ margin: '10px' }} variant="contained" onClick={() => updateApiRoute('/joboffers/company/schnell-und-schwer-logistik')}>
             <Typography>Schnell und Schwer Logistik</Typography>
           </Button>
@@ -201,6 +102,9 @@ export default function Homepage() {
           </Button>
           <Button size='large' sx={{margin:"10px"}} variant='contained' onClick={() => updateApiRoute('/joboffers/payment/all')}>
             <Typography >Filter Payment</Typography>
+          </Button>
+          <Button size='large' sx={{margin:"10px", bgcolor:"#00af00"}} variant='contained'  onClick={() => (router.push("/createNewOffer"))}>
+            <Typography >Create a new Offer</Typography>
           </Button>
           <Button size='large' sx={{margin:"10px"}} variant='contained'color='error' onClick={() => updateApiRoute('/joboffers/createdOn/all')}>
             <Typography >Reset Filters</Typography>
@@ -223,6 +127,7 @@ export default function Homepage() {
                         <Typography>Firma: {card.company}</Typography>
                         <Typography>Start Date: {card.startDate}</Typography>
                         <Typography>Payment: {card.payment}</Typography>
+                        <Typography>Skills: {card.skills}</Typography>
                         <Typography>Created by: {card.createdBy}</Typography>
                         <Typography>Softwareversion: {card.softwareVersion}</Typography>
                       </Grid>

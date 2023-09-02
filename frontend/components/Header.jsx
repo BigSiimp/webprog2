@@ -7,7 +7,7 @@ export default function Header() {
     <Box>
 
    
-    <AppBar sx={{bgcolor:"#cfcfcf", display:"flex", alignItems:"center", position:"sticky", height:"5vh"}}>
+    <AppBar sx={{bgcolor:"#cfcfcf", display:"flex", justifyContent:"center", alignItems:"center", position:"sticky", height:"5vh"}}>
         <Toolbar>
             <Typography variant="h5" color="#1D84B5" >
                 PERMANGEL
